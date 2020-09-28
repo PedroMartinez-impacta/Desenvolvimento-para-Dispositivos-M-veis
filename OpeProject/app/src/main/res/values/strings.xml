@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OpeProject</string>
+    <string name="msg_login">Bem-vindo ao EASY FIT</string>
+    <string name="action_buscar">Buscar</string>
+    <string name="action_atualizar">Atualizar</string>
+    <string name="action_config">Configurar</string>
+</resources>
