@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         buttonLogin.setOnClickListener{
 
-            progress.visibility = View.VISIBLE
-
             val user = userEditControl.text.toString()
             val password = userPasswordEditControl.text.toString()
             if(user == "aluno" && password == "impacta") {
@@ -32,8 +30,6 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtras(params)
 
                 startActivity(intent)
-
-                progress.visibility = View.GONE
             } else {
                 Toast.makeText(this, "Usuário ou senha incorreto", Toast.LENGTH_LONG).show()
             }
