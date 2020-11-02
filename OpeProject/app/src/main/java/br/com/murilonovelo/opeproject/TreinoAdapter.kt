@@ -17,8 +17,8 @@ class TreinoAdapter (
         // ViewHolder com os elemetos da tela
         class TreinosViewHolder(view: View): RecyclerView.ViewHolder(view) {
             val cardNome: TextView = view.findViewById<TextView>(R.id.cardNome)
-            val cardImg : ImageView = view.findViewById<ImageView>(R.id.cardImg)
-            var cardProgress: ProgressBar = view.findViewById<ProgressBar>(R.id.cardProgress)
+            val series: TextView = view.findViewById<TextView>(R.id.series)
+            val duration: TextView = view.findViewById<TextView>(R.id.duration)
             var cardView: CardView = view.findViewById<CardView>(R.id.card_treino)
         }
 
@@ -47,20 +47,9 @@ class TreinoAdapter (
 
             // atualizar dados de treino
 
-            holder.cardNome.text = treino.nome
-            holder.cardProgress.visibility = View.VISIBLE
-
-            // download da imagem
-            Picasso.with(context).load(treino.foto).fit().into(holder.cardImg,
-                object: com.squareup.picasso.Callback{
-                    override fun onSuccess() {
-                        holder.cardProgress.visibility = View.GONE
-                    }
-
-                    override fun onError() {
-                        holder.cardProgress.visibility = View.GONE
-                    }
-                })
+            holder.cardNome.text = treino.day +" - " + treino.exerciseName
+            holder.series.text = "Series: " + treino.series
+            holder.duration.text = "Duração: " + treino.duration
 
             // adiciona evento de clique
             holder.itemView.setOnClickListener {onClick(treino)}

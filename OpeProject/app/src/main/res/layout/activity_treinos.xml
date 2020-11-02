@@ -27,12 +27,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="2dp">
-                <ImageView
-                    android:id="@+id/imagemTreino"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:scaleType="center"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -47,16 +41,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"/>
-
                 </ScrollView>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
-
-
-
 
     </LinearLayout>
 

@@ -30,23 +30,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         val intent = Intent(this, TelaBotoes::class.java)
         val params = Bundle()
-        button_alunos.setOnClickListener{
-            params.putString("nome_disciplina", "Alunos")
-            intent.putExtras(params)
-            startActivity(intent)
-        }
-
-        button_matricula.setOnClickListener{
-            params.putString("nome_disciplina", "Matrícula")
-            intent.putExtras(params)
-            startActivity(intent)
-        }
-
-        button_exerc.setOnClickListener{
-            params.putString("nome_disciplina", "Exercícios")
-            intent.putExtras(params)
-            startActivity(intent)
-        }
 
         button_treinos.setOnClickListener{
             params.putString("nome_disciplina", "Treinos")
@@ -75,23 +58,17 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_alunos -> {
-                Toast.makeText(this, "Clicou Alunos", Toast.LENGTH_SHORT).show()
-            }
-            R.id.nav_exercicio -> {
-                Toast.makeText(this, "Clicou Exercícios", Toast.LENGTH_SHORT).show()
-            }
-            R.id.nav_matricula -> {
-                Toast.makeText(this, "Clicou Matrícula", Toast.LENGTH_SHORT).show()
-            }
-            R.id.nav_menu -> {
-                Toast.makeText(this, "Clicou Menu", Toast.LENGTH_SHORT).show()
-            }
             R.id.nav_sair -> {
-                Toast.makeText(this, "Clicou Sair", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Saindo...", Toast.LENGTH_SHORT).show()
+                finish()
             }
             R.id.nav_treinos -> {
-                Toast.makeText(this, "Clicou Treinos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Acessando Treinos", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, TelaBotoes::class.java)
+                val params = Bundle()
+                params.putString("nome_disciplina", "Treinos")
+                intent.putExtras(params)
+                startActivity(intent)
             }
         }
 

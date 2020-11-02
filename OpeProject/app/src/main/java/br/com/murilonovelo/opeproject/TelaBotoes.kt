@@ -59,13 +59,22 @@ class TelaBotoes : DebugActivity() {
     }
 
     fun taskTreinos() {
-        treino = TreinosService.getTreinos(context)
+        /*treino = TreinosService.getTreinos(context)
         // atualizar lista
-        recyclerTreinos?.adapter = TreinoAdapter(treino) {onClickDisciplina(it)}
+        recyclerTreinos?.adapter = TreinoAdapter(treino) {onClickDisciplina(it)}*/
+
+        Thread {
+            this.treino = TreinosService.getTreinos(context)
+            runOnUiThread {
+                recyclerTreinos?.adapter =
+                    TreinoAdapter(treino) { onClickDisciplina(it) }
+
+            }
+        }.start()
     }
 
     fun onClickDisciplina(treino: Treinos) {
-        Toast.makeText(context, "Clicou Treino ${treino.nome}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Exercício: ${treino.exerciseName}", Toast.LENGTH_SHORT).show()
         val intent = Intent(context, TreinoActivity::class.java)
         intent.putExtra("nome_treino", treino)
         startActivity(intent)
